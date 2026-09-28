@@ -1,7 +1,7 @@
 # server
 
-Single-node hosting for the [monoapp](https://github.com/TarasMazepa/monoapp)
-server, using the prebuilt `taras0mazepa/monoapp` image.
+Single-node hosting for the monoapp server, using the prebuilt
+`taras0mazepa/monoapp` image.
 
 ## Run
 
