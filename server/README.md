@@ -6,20 +6,12 @@ Single-node hosting for the monoapp server, using the prebuilt
 ## Setup
 
 Solomiya reading practices run in their own container, started by monoapp
-through the host docker socket. Before the first run:
+through the host docker socket. Before the first run, put the OpenRouter key
+into `.env` next to `compose.yaml`:
 
-1. Log in to ghcr with a GitHub token that has `read:packages`, so the private
-   solomiya reading image can be pulled:
-
-   ```sh
-   docker login ghcr.io
-   ```
-
-2. Put the OpenRouter key into `.env` next to `compose.yaml`:
-
-   ```sh
-   echo "OPENROUTER_API_KEY=..." > .env
-   ```
+```sh
+echo "OPENROUTER_API_KEY=..." > .env
+```
 
 ## Run
 
