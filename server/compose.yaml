@@ -1,6 +1,6 @@
 services:
   monoapp:
-    image: taras0mazepa/monoapp:0.0.18
+    image: taras0mazepa/monoapp:0.0.19
     restart: unless-stopped
     ports:
       - "8080:8080"
