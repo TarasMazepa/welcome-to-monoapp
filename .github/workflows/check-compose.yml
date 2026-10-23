@@ -17,6 +17,6 @@ jobs:
   check-compose:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: docker compose -f server/compose.yaml config
       - run: docker compose -f server/compose.yaml pull
