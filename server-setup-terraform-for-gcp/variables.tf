@@ -38,3 +38,9 @@ variable "tailscale_auth_key" {
   type        = string
   sensitive   = true
 }
+
+variable "tailscale_tags" {
+  description = "Tailscale tags for the node, comma separated. Each tag needs to be in tagOwners of the tailnet ACL."
+  type        = string
+  default     = "tag:server"
+}
