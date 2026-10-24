@@ -5,9 +5,7 @@ Single-node hosting for the monoapp server, using the prebuilt
 
 ## Setup
 
-Solomiya reading practices run in their own container, started by monoapp
-through the host docker socket. Before the first run, put the OpenRouter key
-into `.env` next to `compose.yaml`:
+Before the first run, put the OpenRouter key into `.env` next to `compose.yaml`:
 
 ```sh
 echo "OPENROUTER_API_KEY=..." > .env
