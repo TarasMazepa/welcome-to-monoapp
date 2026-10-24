@@ -8,8 +8,6 @@ services:
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
     volumes:
       - monoapp-data:/data
-      # Lets get-practice start the solomiya reading container on the host.
-      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   monoapp-data:
