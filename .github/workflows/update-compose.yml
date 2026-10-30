@@ -22,7 +22,8 @@ jobs:
       - uses: actions/checkout@v7
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
-      - run: |
+      - name: update-compose
+        run: |
           VERSION="${INPUT_VERSION}"
           if [ -z "$VERSION" ]; then
             TAG=$(gh release view --repo TarasMazepa/monoapp --json tagName --jq .tagName)
@@ -39,10 +40,10 @@ jobs:
           fi
 
           echo "Target version: $VERSION"
-          sed -i -E 's|(image: taras0mazepa/monoapp:).*|\1'"$VERSION"'|' server/compose.yaml
+          sed -i -E 's|(image: taras0mazepa/monoapp:).*|\1'"$VERSION"'|' compose.yaml
 
-          if git diff --quiet server/compose.yaml; then
-            echo "server/compose.yaml is already up to date with version $VERSION."
+          if git diff --quiet compose.yaml; then
+            echo "compose.yaml is already up to date with version $VERSION."
             exit 0
           fi
 
@@ -58,7 +59,7 @@ jobs:
             --base main \
             --head "$branch_name" \
             --title "Use monoapp $VERSION" \
-            --body "Updates \`server/compose.yaml\` to use \`taras0mazepa/monoapp:$VERSION\`." \
+            --body "Updates \`compose.yaml\` to use \`taras0mazepa/monoapp:$VERSION\`." \
             || echo "Pull request already exists"
         env:
           INPUT_VERSION: ${{ inputs.version || github.event.client_payload.version }}

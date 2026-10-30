@@ -3,13 +3,13 @@ name: check-compose.yml
 on:
   pull_request:
     paths:
-      - 'server/compose.yaml'
+      - 'compose.yaml'
       - '.github/workflows/check-compose.yml'
   push:
     branches:
       - main
     paths:
-      - 'server/compose.yaml'
+      - 'compose.yaml'
       - '.github/workflows/check-compose.yml'
   workflow_dispatch:
 
@@ -18,5 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - run: docker compose -f server/compose.yaml config
-      - run: docker compose -f server/compose.yaml pull
+      - run: docker compose -f compose.yaml config
+      - run: docker compose -f compose.yaml pull
