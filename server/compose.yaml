@@ -6,6 +6,7 @@ services:
       - "8080:8080"
     environment:
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      GH_TOKEN: ${GH_TOKEN:-}
     volumes:
       - monoapp-data:/data
 
